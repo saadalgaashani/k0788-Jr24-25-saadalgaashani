@@ -8,23 +8,30 @@ public class Mover : MonoBehaviour
 
             void Start ( )
         {
-            
-
+            PrintInstructions();
 
         }
     
     void Update()
     {
-        
-       float xValue =  Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed ;
-       float yValue =  0f;
-       float zValue =  Input.GetAxis("Vertical") * Time.deltaTime* moveSpeed ;
-
-        transform.Translate(xValue, yValue, zValue);
-        
+      MovePlayer();
 
     }
 
-    
+    void PrintInstructions()
+    {
+        Debug.Log("Welcome to the game!");
+        Debug.Log("Use the arrow keys to move the player.");
+        Debug.Log("Dont't bump into objects!");
+
+    }
+
+    void MovePlayer()
+    {
+         float xValue =  Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed ;
+       float yValue =  0f;
+       float zValue =  Input.GetAxis("Vertical") * Time.deltaTime* moveSpeed;
+        transform.Translate(xValue, yValue, zValue);
+    }
     
 }
