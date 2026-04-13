@@ -4,14 +4,25 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    // PARAMETERS - for tuning, typically set in the editor
+    // CACHE - eg. references for readability or speed
+    // STATE - private instances (member) variables
    [SerializeField] InputAction thrust;
    [SerializeField] InputAction rotation;
    [SerializeField] float  thrustStrenght= 100f ;
    [SerializeField] float rotationStrenght = 100f;
+   [SerializeField] AudioClip mainEngineSFX ;
+    [SerializeField] ParticleSystem mainParticles;
+    [SerializeField] ParticleSystem leftParticles;
+    [SerializeField] ParticleSystem rightParticles;
+
+  
+
    Rigidbody rb;
    AudioSource audioSource;
    //kleine (a) is de file en grote (S) is de type van de file
  
+
     private void Start()
     {
        rb = GetComponent<Rigidbody>();
@@ -22,7 +33,11 @@ public class Movement : MonoBehaviour
     {
         thrust.Enable();
         rotation.Enable();
+        mainParticles.Play();
+       
+       
     }
+   
     private void FixedUpdate()
     {
        ProcessThrust();
@@ -35,13 +50,22 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * thrustStrenght * Time.deltaTime);
             if (!audioSource.isPlaying)
             {
-                 audioSource.Play();
+                 audioSource.PlayOneShot(mainEngineSFX);
+                 if (!mainParticles.isPlaying)
+                {
+                  mainParticles.Play();  
+                }
+                    
+                    
+                 
             }
            
         }    
                else
         {
             audioSource.Stop();
+            mainParticles.Stop();
+           
         }
     }
 
@@ -52,11 +76,29 @@ public class Movement : MonoBehaviour
         {
             if(rotationInput > 0){
                  ApplyRotation(-rotationStrenght);
+                 
+                 if (!rightParticles.isPlaying)
+                {
+                    leftParticles.Stop();
+                 rightParticles.Play();  
+                }
+                 
             }
             else if(rotationInput < 0)
             {
                  ApplyRotation(rotationStrenght);
+                 
+                   if (!leftParticles.isPlaying)
+                {
+                    rightParticles.Stop();
+                 leftParticles.Play();  
+                }
             }
+        }
+        else
+        {
+                leftParticles.Stop();
+                rightParticles.Stop();
         }
        
     }
