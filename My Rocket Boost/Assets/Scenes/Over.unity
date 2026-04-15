@@ -928,9 +928,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5586537833209596863, guid: 2d27fa438ad2fef47be8b77ae654fdb2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6516503909456437090, guid: 2d27fa438ad2fef47be8b77ae654fdb2, type: 3}
       propertyPath: m_Name
       value: Player Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111489924848681278, guid: 2d27fa438ad2fef47be8b77ae654fdb2, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7397033719664864732, guid: 2d27fa438ad2fef47be8b77ae654fdb2, type: 3}
       propertyPath: m_LocalPosition.x
