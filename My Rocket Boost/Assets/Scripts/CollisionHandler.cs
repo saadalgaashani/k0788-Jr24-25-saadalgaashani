@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
    
@@ -12,7 +13,8 @@ public class CollisionHandler : MonoBehaviour
    [SerializeField] ParticleSystem crashParticles;
    [SerializeField] ParticleSystem successParticles;
     AudioSource audioSource; 
-    bool iscontrollable = true;
+    bool isControllable = true;
+    bool isCollidable = true;
 
 
 
@@ -21,9 +23,28 @@ public class CollisionHandler : MonoBehaviour
                 audioSource = GetComponent<AudioSource>();
 
     }
+   private void Update()
+    {
+        RespondToDebugKeys();
+    }
+    void RespondToDebugKeys()
+    {
+      if (Keyboard.current.lKey.wasPressedThisFrame)
+       {
+      LoadNextLevel();
+       }
+       else if (Keyboard.current.cKey.wasPressedThisFrame)
+    {
+      isCollidable = !isCollidable; // toggle collision
+      Debug.Log("c Key was pressed");
+      
+    }
+
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        if (!iscontrollable) {  return;    }
+        if (!isControllable || !isCollidable) {  return;    }
       switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -46,7 +67,7 @@ public class CollisionHandler : MonoBehaviour
     private void StartSuccessSequence()
     {
         // too add sfx and particles
-        iscontrollable = false;
+        isControllable = false;
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
@@ -59,7 +80,7 @@ public class CollisionHandler : MonoBehaviour
     void StartCrashSequence()
     {
        // too add sfx and particles
-       iscontrollable = false;
+       isControllable = false;
         audioSource.Stop();
          audioSource.PlayOneShot(crashes);
         crashParticles.Play();

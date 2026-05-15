@@ -269,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0041946094, y: -0.070449196, z: -0.00010060454, w: 0.9975066}
-  m_LocalPosition: {x: -11.721312, y: 4.2163734, z: -12.73277}
+  m_LocalPosition: {x: -10.370647, y: 4.3569527, z: -16.289547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -813,7 +813,7 @@ Transform:
   m_GameObject: {fileID: 928658319}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0041946094, y: -0.070449196, z: -0.00010060454, w: 0.9975066}
-  m_LocalPosition: {x: -11.721312, y: 4.2163734, z: -12.73277}
+  m_LocalPosition: {x: -10.370647, y: 4.3569527, z: -16.289547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -831,12 +831,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
-  CameraDistance: 13.79
+  CameraDistance: 17.5
   DeadZoneDepth: 8.12
   Composition:
     ScreenPosition: {x: -0.11, y: 0.04}
     DeadZone:
-      Enabled: 0
+      Enabled: 1
       Size: {x: 0.2, y: 0.2}
     HardLimits:
       Enabled: 1
@@ -1379,7 +1379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3274448637134936099, guid: b74b82880a496304387c043c2ceb68a5, type: 3}
       propertyPath: CameraDistance
-      value: 13.79
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 3274448637134936099, guid: b74b82880a496304387c043c2ceb68a5, type: 3}
       propertyPath: TargetOffset.x
@@ -1392,6 +1392,10 @@ PrefabInstance:
     - target: {fileID: 3274448637134936099, guid: b74b82880a496304387c043c2ceb68a5, type: 3}
       propertyPath: TargetOffset.z
       value: 4.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3274448637134936099, guid: b74b82880a496304387c043c2ceb68a5, type: 3}
+      propertyPath: Composition.DeadZone.Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4181381824253919945, guid: b74b82880a496304387c043c2ceb68a5, type: 3}
       propertyPath: m_Name
@@ -1573,7 +1577,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3806900548002244951, guid: 2d27fa438ad2fef47be8b77ae654fdb2, type: 3}
       propertyPath: thrustStrenght
-      value: 1000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 6516503909456437090, guid: 2d27fa438ad2fef47be8b77ae654fdb2, type: 3}
       propertyPath: m_Name
