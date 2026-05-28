@@ -1,3 +1,0 @@
-repository "dread shadow/dread shadow@9072351810103@cloud"
-  path "/"
-    smartbranch "/main"
